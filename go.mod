@@ -3,7 +3,6 @@ module gorest-10
 go 1.21.1
 
 require (
-	github.com/joho/godotenv v1.5.1
 	github.com/labstack/echo/v4 v4.11.1
 	gorm.io/driver/mysql v1.5.1
 	gorm.io/gorm v1.25.4

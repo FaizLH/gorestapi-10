@@ -25,3 +25,11 @@ func InitDB() {
 func Migration() {
 	DB.AutoMigrate(itemDB.Item{})
 }
+
+func GetPort() string {
+	port := os.Getenv("PORT")
+	if port == "" {
+		return ":8000"
+	}
+	return ":" + port
+}
