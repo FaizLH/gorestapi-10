@@ -21,7 +21,7 @@ func GetAllItems(c echo.Context) error {
 	if result.Error != nil {
 		return c.JSON(http.StatusInternalServerError, base.Response{
 			Status:  "error",
-			Message: "Gagal mendapatkan data items : " + result.Error.Error(),
+			Message: "Gagal mendapatkan data items, " + result.Error.Error(),
 			Data:    nil,
 		})
 	}
@@ -46,7 +46,7 @@ func GetItemById(c echo.Context) error {
 		}
 		return c.JSON(http.StatusInternalServerError, base.Response{
 			Status:  "error",
-			Message: "Gagal mendapatkan data item by id",
+			Message: "Gagal mendapatkan data item by id, " + err.Error(),
 			Data:    nil,
 		})
 	}
@@ -71,7 +71,7 @@ func DeleteItemById(c echo.Context) error {
 		}
 		return c.JSON(http.StatusInternalServerError, base.Response{
 			Status:  "error",
-			Message: "Gagal mendapatkan data item by id",
+			Message: "Gagal mendapatkan data item by id, " + err.Error(),
 			Data:    nil,
 		})
 	}
@@ -79,7 +79,7 @@ func DeleteItemById(c echo.Context) error {
 	if err := configs.DB.Delete(&item).Error; err != nil {
 		return c.JSON(http.StatusInternalServerError, base.Response{
 			Status:  "error",
-			Message: "Gagal menghapus data item",
+			Message: "Gagal menghapus data item, " + err.Error(),
 			Data:    nil,
 		})
 	}
@@ -133,7 +133,7 @@ func CreateItem(c echo.Context) error {
 	if result.Error != nil {
 		return c.JSON(http.StatusInternalServerError, base.Response{
 			Status:  "error",
-			Message: "Gagal menambahkan data item",
+			Message: "Gagal menambahkan data item, " + result.Error.Error(),
 			Data:    nil,
 		})
 	}
@@ -199,7 +199,7 @@ func UpdateItem(c echo.Context) error {
 	if result.Error != nil {
 		return c.JSON(http.StatusInternalServerError, base.Response{
 			Status:  "error",
-			Message: "Gagal memperbarui data item",
+			Message: "Gagal memperbarui data item, " + result.Error.Error(),
 			Data:    nil,
 		})
 	}
